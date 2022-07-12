@@ -1,0 +1,29 @@
+package Ed13;
+
+public class Celula {
+  private byte num; //DEFININDO TIPOS
+  private Celula anterior; //DEFININDO ANTERIOR
+
+  public Celula(){}
+ 
+  public Celula(byte num, Celula anterior){
+    this.num = num; //N RECEBE N
+    this.anterior = anterior; // ANT RECEBE ANT
+  }
+
+  public byte GetDado(){ //PEGA DADOS
+    return this.num;
+  }
+
+  public void setDado(byte num){
+    this.num = num; // NUMERO RECEBE NUMERO
+  }
+  
+  public Celula getAnterior(){ //PEGANDO O ANTERIOR
+    return (this.anterior);
+  }
+
+  public void setAnterior(Celula anterior){ //ANTERIOR RECEBENDO ANTERIOR
+    this.anterior = anterior;
+  }
+}
