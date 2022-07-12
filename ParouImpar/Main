@@ -1,0 +1,45 @@
+package Ed13;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    byte n; //DEFININDO TIPOS
+    Scanner input = new Scanner(System.in);
+    Pilha par = new Pilha();
+    Pilha impar = new Pilha();
+
+    do{
+      System.out.println(" Entre com valores entre -127 até 128 [0]FINALIZAR PROGRAMA:");
+      n = input.nextByte();
+      if (n == 0) { //DIGITE 0 PARA ENCERRAR O PROGRAMA
+        break;
+      }
+      else if(n % 2 == 0){ //SE FOR DIVISIVEL POR 2 SERÁ PAR
+        par.push(n);
+      }
+      else{ //CASO NÃO SEJA DIVISIVEL POR 2 SERÁ IMPAR
+        impar.push(n);
+      }
+    }while(n != 0); //ENQUANTO FOR DIFERENTE DE 0 
+
+    while(true){ //SERÁ VERDADE
+      if(!impar.isEmpyt())impar.pop(); //SE FOR DIFERENTE DE VAZIO
+      if(!par.isEmpyt())par.pop(); //SE FOR DIFERENTE DE VAZIO 
+      else break; //CASO NÃO SEJA FINALIZAR
+    }
+    
+    if (!impar.isEmpyt()) { //SE IMPAR FOR VAZIO 
+      System.out.println("Falta "+ impar.sizePilha()+ " N(s) impar N=: ");
+      while(!impar.isEmpyt()){
+        impar.pop();
+      }
+    }
+    else if (!par.isEmpyt()){ //SE FOR PAR 
+      System.out.println("Falta "+ par.sizePilha()+ " N(s) par N=: ");
+      while(!par.isEmpyt()){ //ENQUANTO PAR ESTIVER VAZIO PAR SERÁ POP
+        par.pop();
+      }
+    }
+    
+    input.close();
+  }
+}
